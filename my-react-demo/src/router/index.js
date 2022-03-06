@@ -1,15 +1,15 @@
-import home from '../pages/home';
-import shopList from '../pages/shopList';
+import Home from '../pages/home';
+import ShopList from '../pages/shopList';
 
 const  routes = [
    {
         path:"/",
-        element:<home />,
+        element:<Home />,
          exact:true
     },
     {
         path:"/about",
-        element:<shopList />,
+        element:<ShopList />,
         
     }
 ]

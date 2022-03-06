@@ -1,24 +1,37 @@
 import React from 'react'
 import { Button } from 'antd';
 import { Layout, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 const { Header } = Layout;
 
 class ShoppingList extends React.Component {
     constructor(props) { 
       super(props)
+      this.state = {
+        current: '2'
+      };
+    }
+    handleClick=e=>{
+      console.log('click ', e);
+      this.setState({ current: e.key });
+      const navigate = useNavigate();
+      if(e.key==='1'){
+        navigate('/shopList')
+      }
     }
     // class创建的组件中 必须有rander方法 且显示return一个react对象或者null
     render() {
+      const { current } = this.state;
       return (
         <div className="shopping-list">
         <Header className="header">
-      <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
-      </Menu>
-    </Header>
+          <div className="logo" />
+          <Menu onClick={this.handleClick} selectedKeys={[current]} theme="dark" mode="horizontal" >
+            <Menu.Item key="1">nav 1</Menu.Item>
+            <Menu.Item key="2">nav 2</Menu.Item>
+            <Menu.Item key="3">nav 3</Menu.Item>
+          </Menu>
+        </Header>
           <Button>hhh</Button>
         </div>
       )
