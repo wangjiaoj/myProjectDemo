@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd';
 
-class ShoppingList extends React.Component {
+class ShopList extends React.Component {
     constructor(props) { 
       super(props)
     }
@@ -20,4 +20,4 @@ class ShoppingList extends React.Component {
     }
 }
 
-export default ShoppingList
+export default ShopList

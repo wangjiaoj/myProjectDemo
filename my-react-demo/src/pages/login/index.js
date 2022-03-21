@@ -1,60 +1,78 @@
 import React,{ useState } from 'react'
-import { Routes, Route,useNavigate , Link} from "react-router-dom"
-import { Layout, Menu } from 'antd';
-import {RouteWithSubRoutes} from '../../components/route'
-const { Header,Sider } = Layout;
+import { Button, Form, Input, Row, Col } from 'antd';
+ 
+const createEmptyLogin = () => ({
+  login: "",
+  password: ""
+})
+function ShoppingList  (props) {
+   
+  const { onLogin } = props;
+  const [loginInfo, setLoginInfo] = useState(
+    createEmptyLogin()
+  );
 
-function Home(props) {
-   const {childRoutes} = props;
-  console.log(props)
-  var {current,setCurrent} = useState(2);
-  const navigate = useNavigate();
-  const handleClick=e=>{
-      console.log('click ', e);
-       
-      setCurrent = e.key;
-      if(e.key==='1'){
-        console.log('navigate ');
-        navigate('/shopList')
-      }
-    }
-    // class创建的组件中 必须有rander方法 且显示return一个react对象或者null
+  const onTexFieldChange = (fieldId) => (e) => {
+    setLoginInfo({
+      ...loginInfo,
+      [fieldId]: e.target.value
+    });
+  };
 
-    return (
-        <layout >
-         
-            <Sider width={200} className="site-layout-background">
-              <Menu onClick={handleClick} selectedKeys={[current]} theme="light"    mode="inline" >
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
-              </Menu>
-          </Sider>
-      
-          <Layout style={{ padding: '0 24px 24px 2px' }}>
-                <Header className="header"  theme="light"  >
-                  
-                </Header>
-                <div>
-                  {/* <ol>
-                    <Link to="/">home</Link>
-                    <Link to="/shopList">about</Link>
-                  </ol> */}
-                  
+  return (
+    <div class="login-container">
+      <p style={{'color':'#999'}}>用户名:admin 密码:111111</p>
+      <Form>
+        <Form.Item
+          label="用户名"
+        >
+          <Input 
+            placeholder="请输入用户名" 
+            value={loginInfo.login}
+            onChange={onTexFieldChange("login")}
+           />
+        </Form.Item>
 
-                  <Routes>
-                  {childRoutes.map((route, i) => {
-                    return RouteWithSubRoutes(route, i)
-                  })}
-                  </Routes>
-                </div>
-            </Layout>       
-        </layout>
-     )
+        <Form.Item
+          label="密&nbsp;&nbsp;&nbsp;&nbsp;码"
+          hasFeedback
+        >
+          <Input 
+            type="password" 
+            autoComplete="off" 
+            placeholder="请输入密码" 
+            value={loginInfo.password}
+            onChange={onTexFieldChange("password")}
+           />
+        </Form.Item>
+
+        <Form.Item>
+          <Row>
+            <Col span={12}>
+              <Button 
+                style={{'width':'calc( 100% - 5px )'}}
+                type="primary" 
+                onClick={() => onLogin(loginInfo)}
+               >确定</Button>
+            </Col>
+            <Col span={12} style={{'textAlign':'right'}}>
+              <Button 
+                style={{'width':'calc( 100% - 5px )'}}
+                type="ghost" 
+                onClick={() => setLoginInfo({login:'admin',password:'111111'})}
+               >重置</Button>
+            </Col>
+          </Row>
+          
+          
+        </Form.Item>
+      </Form>
+    </div>
+  );
     
 }
 
-export default Home
+export default ShoppingList
 
 
 
@@ -117,4 +135,4 @@ export default Home
 //     </Layout>
 //   </Layout>,
 //   mountNode,
-     // );
+// );

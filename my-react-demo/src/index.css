@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+#APP,#root{
+  width:100%;
+  height: 100%;
+}
+#APP>layout{
+  width:100%;
+  height: 100%;
+  display: flex;
+}
+
+.login-container{
+  width:600px;
+  height: 600px;
+  margin: 100px auto 0;
+}
