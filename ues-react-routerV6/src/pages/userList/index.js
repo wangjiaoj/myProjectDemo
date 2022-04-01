@@ -1,4 +1,5 @@
 import { Table, Tag, Space } from 'antd';
+import {get_surveyData}from"../../api/list"
 const UserList =(props)=> {
  
     // class创建的组件中 必须有rander方法 且显示return一个react对象或者null
@@ -73,6 +74,12 @@ const UserList =(props)=> {
         ),
       },
     ];
+   console.log('get_surveyData')
+    get_surveyData().then((result) => {
+      console.log(result)
+    }).catch((err) => {
+      
+    });
     return (
       <div className="user-list">
       

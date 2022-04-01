@@ -7,9 +7,6 @@ const { Header,Sider } = Layout;
 
 function Home(props) {
   const {childRoutes} = props;
-  console.log(childRoutes)
-  // console.log("mainChildRoutes")
-  // console.log(mainChildRoutes)
   var {current,setCurrent} = useState(2);
   const navigate = useNavigate();
   const handleClick=e=>{

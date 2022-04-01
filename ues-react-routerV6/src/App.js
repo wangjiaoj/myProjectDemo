@@ -4,6 +4,7 @@ import {RouteWithSubRoutes} from './components/route'
 import {routeList} from './router';
 import 'antd/dist/antd.css';
 import { Reducer, InitialState } from './reducers/reducers'
+import './mock/list'
 // function RenderRoutes() {
 //   const element = useRoutes(routes)
 //   return element;

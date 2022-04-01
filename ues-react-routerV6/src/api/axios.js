@@ -1,11 +1,5 @@
 import axios from "axios";
 
-// import router from "router";
-//  import { getCurrentInstance } from "vue";
-//  const { proxy } = getCurrentInstance();
-
-import {Toast} from 'vant';
-
 let pending = [];
 let cancelToken = axios.CancelToken;
 let removePending = config => {
@@ -60,7 +54,7 @@ server.interceptors.request.use(
         },
         error => {
             // 对响应错误做点什么
-            Toast('失败');
+           // Toast('失败');
             // console.log(error.response)
             // 无网络时跳转APP无网络页面
             // if (!navigator.onLine) {
