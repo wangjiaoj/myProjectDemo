@@ -1,33 +1,33 @@
-import style from './index.scss';
+// import style from './index.scss';
 import React,{ useState } from 'react'
 import { Switch, Route,useHistory , Link} from "react-router-dom"
 import { Layout, Menu } from 'antd';
-import {RouteWithSubRoutes} from '../../components/route'
+import {RouteWithSubRoutes} from '@/components/route.tsx'
 const { Header,Sider } = Layout;
 interface IProps{
   childRoutes:Array<any>
 }
 const Home = (props:IProps)=> {
   const {childRoutes} = props;
-  var {current,setCurrent} = useState(2);
+  var [current,setCurrent] = useState("2");
   const navigate = useHistory();
-  const handleClick=(e:Event & { key: number })=>{
+  const handleClick=(e:Event & { key: string })=>{
       console.log('click ', e);
        
       setCurrent(e.key) ;
-      if(e.key===1){
+      if(e.key==="1"){
         console.log('navigate ');
         navigate('/shopList')
       }
     }
     // class创建的组件中 必须有rander方法 且显示return一个react对象或者null
-
+//className={style.siteLayoutVackground}  onClick={handleClick}
     return (
         <Layout style={{ minHeight: '100vh' }}>
         
           <Sider width={200} theme="dark">
             <div className="logo"></div> 
-              <Menu onClick={handleClick} selectedKeys={[current]} theme="light"    mode="inline" >
+              <Menu  selectedKeys={[current]} theme="light"  mode="inline" >
                 <Menu.Item key="1">nav 1</Menu.Item>
                 <Menu.Item key="2">nav 2</Menu.Item>
                 <Menu.Item key="3">nav 3</Menu.Item>
@@ -35,7 +35,7 @@ const Home = (props:IProps)=> {
           </Sider>
       
           <Layout style={{ padding: '0 24px 24px 2px' }}>
-            <Header  className={style.siteLayoutVackground}   >
+            <Header     >
                 <ol>
                   <Link to="/">login</Link>
                     <Link to="/home">home</Link>

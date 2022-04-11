@@ -8,7 +8,7 @@ let removePending = (config:any) => {
         if (pending[p].u === config.url.split("?")[0] + "&" + config.method) {
             //当当前请求在数组中存在时执行函数体
             pending[p].f(); //执行取消操作
-            pending.splice(p, 1); //数组移除当前请求
+            pending.splice(Number(p), 1); //数组移除当前请求
         }
     }
 };

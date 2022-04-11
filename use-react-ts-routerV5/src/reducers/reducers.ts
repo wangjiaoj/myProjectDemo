@@ -1,20 +1,25 @@
-const InitialState = {
+interface StateInterface {
+    loggedIn: boolean;
+  }
+  const InitialState: StateInterface = {
     loggedIn: true
   };
-  interface actionType{
-      type:'string',
-      user:any
+ 
+  interface ActionInterface {
+    type: string;
   }
-function Reducer(state:any, action:any) {
+  const Reducer = (state: StateInterface, action: ActionInterface) => {
     switch (action.type) {
-        case "setUser":
-            return { ...state, user: action.user };
-        case "setBooks":
-            return { ...state, books: action.books };
-        case "setMovies":
-            return { ...state, movies: action.movies };
-        default:
-            throw new Error();
+      case 'LOG_IN':
+        return {
+          loggedIn: true
+        };
+      case 'LOG_OUT':
+        return {
+          loggedIn: false
+        };
+      default:
+        return state;
     }
-}
+  };
 export { Reducer, InitialState };

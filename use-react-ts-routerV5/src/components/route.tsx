@@ -12,7 +12,7 @@ const RouteWithSubRoutes = (route:any, index:number) => {
     <Route
       key={index}
       path={route.path}
-      render={props => (
+      render={(props:any) => (
         <route.component {...props} routes={route.routes} />
       )}
     />

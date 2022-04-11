@@ -5,14 +5,14 @@ const createEmptyLogin = () => ({
   login: "",
   password: ""
 })
-const LoginComponent = (props)=> {
+const LoginComponent = (props:any)=> {
    
   const { onLogin } = props;
   const [loginInfo, setLoginInfo] = useState(
     createEmptyLogin()
   );
 
-  const onTexFieldChange = (fieldId) => (e) => {
+  const onTexFieldChange = (fieldId:any) => (e:HTMLInputElement&{target:any}) => {
     setLoginInfo({
       ...loginInfo,
       [fieldId]: e.target.value
@@ -29,7 +29,7 @@ const LoginComponent = (props)=> {
           <Input 
             placeholder="请输入用户名" 
             value={loginInfo.login}
-            onChange={onTexFieldChange("login")}
+            onChange={onTexFieldChange}
            />
         </Form.Item>
 
@@ -42,7 +42,7 @@ const LoginComponent = (props)=> {
             autoComplete="off" 
             placeholder="请输入密码" 
             value={loginInfo.password}
-            onChange={onTexFieldChange("password")}
+            onChange={onTexFieldChange}
            />
         </Form.Item>
 

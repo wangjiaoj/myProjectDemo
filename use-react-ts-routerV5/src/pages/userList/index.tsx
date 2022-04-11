@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Tag, Space } from 'antd';
-import {get_surveyData}from"../../api/list"
+import server from '../../api/axios';
 const UserList =()=> {
  
     // class创建的组件中 必须有rander方法 且显示return一个react对象或者null
@@ -32,7 +32,7 @@ const UserList =()=> {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a>{text}</a>,
+        render: (text:any) => <a>{text}</a>,
       },
       {
         title: 'Age',
@@ -48,9 +48,9 @@ const UserList =()=> {
         title: 'Tags',
         key: 'tags',
         dataIndex: 'tags',
-        render: tags => (
+        render: (tags:any) => (
           <>
-            {tags.map(tag => {
+            {tags.map((tag:any) => {
               let color = tag.length > 5 ? 'geekblue' : 'green';
               if (tag === 'loser') {
                 color = 'volcano';
@@ -67,7 +67,7 @@ const UserList =()=> {
       {
         title: 'Action',
         key: 'action',
-        render: (text, record) => (
+        render: (text:any, record:any) => (
           <Space size="middle">
             <a>Invite {record.name}</a>
             <a>Delete</a>
@@ -75,12 +75,14 @@ const UserList =()=> {
         ),
       },
     ];
-   console.log('get_surveyData')
-    get_surveyData({id:1}).then((result) => {
-      console.log(result)
-    }).catch((err) => {
+  //   server({
+  //     url:'/survey/list',
+  //     param:{id:1}
+  //  }).then((resul:any) => {
+  //     // console.log(result)
+  //   }).catch((err:any) => {
       
-    });
+  //   });
     return (
       <div className="user-list">
       
