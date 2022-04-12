@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-redeclare */
 declare module '*.png';
 declare module '*.gif';
 declare module '*.jpg';

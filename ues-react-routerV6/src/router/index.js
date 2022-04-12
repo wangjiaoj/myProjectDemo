@@ -1,7 +1,10 @@
-import Home from '../pages/home';
-import ShopList from '../pages/shopList'; 
-import Login from '../pages/login';
-import UserList from '../pages/userList'
+import React from 'react';
+
+const Home = React.lazy(()=>  import('../pages/home')) 
+const ShopList = React.lazy(()=> import('../pages/shopList')) ; 
+const Login = React.lazy(()=>import('../pages/login')) ;
+const UserList = React.lazy(()=>import('../pages/userList')) 
+ 
 //路由集体管理
 const mainChildRoutes = [{
     path:"/shop",

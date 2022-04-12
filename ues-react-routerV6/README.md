@@ -1,4 +1,8 @@
 # react+antd+router
-
-修改react默认配置 引入less
-less的
+* cra5
+* less
+* css.module
+* mockjs
+* react-router-v6
+* router懒加载
+* antd

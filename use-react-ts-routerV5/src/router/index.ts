@@ -1,25 +1,26 @@
-import Home from '../pages/home';
-import ShopList from '../pages/shopList'; 
-import Login from '../pages/login';
-import UserList from '../pages/userList'
+import {lazy} from 'react';
 //路由集体管理
 import { RouteInterface } from '../types/route';
+const Home = lazy(()=>  import('../pages/home')) 
+const ShopList = lazy(()=> import('../pages/shopList')) ; 
+const Login = lazy(()=>import('../pages/login')) ;
+const UserList = lazy(()=>import('../pages/userList')) 
+
   
 const mainChildRoutes:Array<RouteInterface> = [{
-    path:"/shop",
+    path:"/home/shop",
     component:ShopList ,
 }, {
-    path:"/user",
+    path:"/home/user",
     component:UserList,
 }];
 const  routeList:Array<any> = [
    {
-        path:"/",
+        path:"/login",
         component:Login ,
-        exact:true
     },
     {
-        path:"/home/*",
+        path:"/home",
         component:Home,
         routes:mainChildRoutes
     }

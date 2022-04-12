@@ -54,6 +54,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "mockjs": "^1.1.0",
+    "react-error-overlay": "^6.0.9",
     "simple-progress-webpack-plugin": "^2.0.0"
   }
 }

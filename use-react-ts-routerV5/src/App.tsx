@@ -16,10 +16,10 @@ const App: React.FC = ()=> {
           <Global.Provider value={{global}}>
           <Router>
             <Switch>
-            {routeList.map((route:RouteInterface, i:number) => {
-              return RouteWithSubRoutes(route, i)
-            })}
-           
+              <Redirect exact from="/" to="/login" />
+              {routeList.map((route:RouteInterface, i:number) => {
+                return RouteWithSubRoutes(route, i)
+              })}  
             </Switch>
             </Router>
         </Global.Provider>
