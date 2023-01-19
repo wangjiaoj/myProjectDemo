@@ -1,4 +1,4 @@
-# myProjectDemo
+# myReactProjectDemo
 
-some  project demo for vue2 \vue3 \ react & Typescript 
+some  project demo for react & Typescript 
 
